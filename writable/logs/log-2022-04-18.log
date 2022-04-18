@@ -1,0 +1,40 @@
+CRITICAL - 2022-04-18 00:18:40 --> Undefined variable $id_libro
+#0 C:\xampp\htdocs\ci4\app\Controllers\Libros.php(89): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 89)
+#1 C:\xampp\htdocs\ci4\system\CodeIgniter.php(832): App\Controllers\Libros->actualizar()
+#2 C:\xampp\htdocs\ci4\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Libros))
+#3 C:\xampp\htdocs\ci4\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ci4\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 00:19:41 --> Undefined variable $id_libro
+#0 C:\xampp\htdocs\ci4\app\Controllers\Libros.php(89): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 89)
+#1 C:\xampp\htdocs\ci4\system\CodeIgniter.php(832): App\Controllers\Libros->actualizar()
+#2 C:\xampp\htdocs\ci4\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Libros))
+#3 C:\xampp\htdocs\ci4\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ci4\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-18 00:38:50 --> Call to undefined function App\Controllers\validate()
+#0 C:\xampp\htdocs\ci4\system\CodeIgniter.php(832): App\Controllers\Libros->actualizar()
+#1 C:\xampp\htdocs\ci4\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Libros))
+#2 C:\xampp\htdocs\ci4\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ci4\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-04-18 00:39:16 --> uploaded[imagen_libro is not a valid rule.
+#0 C:\xampp\htdocs\ci4\system\Validation\Validation.php(300): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('uploaded[imagen...')
+#1 C:\xampp\htdocs\ci4\system\Validation\Validation.php(157): CodeIgniter\Validation\Validation->processRules('imagen_libro', 'imagen_libro', NULL, Array, Array)
+#2 C:\xampp\htdocs\ci4\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#3 C:\xampp\htdocs\ci4\app\Controllers\Libros.php(94): CodeIgniter\Controller->validate(Array)
+#4 C:\xampp\htdocs\ci4\system\CodeIgniter.php(832): App\Controllers\Libros->actualizar()
+#5 C:\xampp\htdocs\ci4\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Libros))
+#6 C:\xampp\htdocs\ci4\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ci4\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-04-18 00:40:37 --> uploaded[imagen_libro is not a valid rule.
+#0 C:\xampp\htdocs\ci4\system\Validation\Validation.php(300): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('uploaded[imagen...')
+#1 C:\xampp\htdocs\ci4\system\Validation\Validation.php(157): CodeIgniter\Validation\Validation->processRules('imagen_libro', 'imagen_libro', NULL, Array, Array)
+#2 C:\xampp\htdocs\ci4\system\Controller.php(160): CodeIgniter\Validation\Validation->run()
+#3 C:\xampp\htdocs\ci4\app\Controllers\Libros.php(94): CodeIgniter\Controller->validate(Array)
+#4 C:\xampp\htdocs\ci4\system\CodeIgniter.php(832): App\Controllers\Libros->actualizar()
+#5 C:\xampp\htdocs\ci4\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Libros))
+#6 C:\xampp\htdocs\ci4\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ci4\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
