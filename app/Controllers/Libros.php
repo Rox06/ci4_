@@ -30,21 +30,56 @@ class Libros extends Controller{
         $libro = new Libro();
 
         $nombrelibro=$this->request->getVar('nombrelibro');
+        $imagenlibro=$this->request->getFile('imagenlibro');
+        #var_dump($nombrelibro);
+        #var_dump($imagenlibro);
         
-        if($imagenlibro=$this->request->getFile('imagenlibro')){
-            
-            $nuevoImagenlibro=$imagenlibro->getRandomName();
-            $imagenlibro->move('../public/imagenes/',$nuevoImagenlibro);
-           
-            $datos=[
-                'nombre_libro'=>$nombrelibro,
-                'imagen_libro'=>$nuevoImagenlibro
-            ];
-
-            $libro->insert($datos);
+        if($nombrelibro==null){
+            echo "<script>alert('Ingresa nombre de libro');</script>";
+              
+            $vuelvecrear=$this->crear();
+            return $vuelvecrear;
         }
+        else{
+            if(!file_exists($imagenlibro)){
 
-        return $this->response->redirect(site_url('/listar'));
+                echo "<script>alert('Ingresa archivo');</script>";
+                $vuelvecrear=$this->crear();
+                return $vuelvecrear;
+            }
+            else{
+
+                $validacion = $this->validate([
+                    'imagenlibro'=>[
+                        'uploaded[imagenlibro]',
+                        'mime_in[imagenlibro,image/jpg,image/jpeg,image/png]',
+                        'max_size[imagenlibro,1024]',
+                    ]
+                ]);
+                
+                if($validacion){
+                    
+                    $nuevoImagenlibro=$imagenlibro->getRandomName();
+                    $imagenlibro->move('../public/imagenes/',$nuevoImagenlibro);
+                    
+                }
+                else {
+                    echo "<script>alert('Ingresa archivo válido jpg/jpeg/png menor a 1M');</script>";
+                    
+                    $vuelvecrear=$this->crear();
+                    return $vuelvecrear;
+                    
+                }
+
+                $datos=[
+                    'nombre_libro'=>$nombrelibro,
+                    'imagen_libro'=>$nuevoImagenlibro
+                ];
+
+                $libro->insert($datos);
+                return $this->response->redirect(site_url('/listar'));
+            }
+        } 
     }
 
     public function borrar($id_libro=null){#Null en caso de no recepcionar nada
