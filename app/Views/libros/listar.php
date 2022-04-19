@@ -22,7 +22,7 @@
                     </td>
                     <td>
                         <a href="<?= base_url('editar/'.$libro['id_libro']); ?>" class="btn btn-info" type="button">Editar</a>
-                        <a href="<?= base_url('borrar/'.$libro['id_libro']); ?>" class="btn btn-danger" type="button">Borrar</a>
+                        <a href="<?= base_url('borrar/'.$libro['id_libro']); ?>" class="btn btn-danger" type="button" onclick="return confirm('¿Desea eliminar?');">Borrar</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
