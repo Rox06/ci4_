@@ -80,44 +80,59 @@ class Libros extends Controller{
     }
 
     public function actualizar(){
-        var_dump($id_libro=$this->request->getVar('id_libros'));
+        #$imagenlibro=$this->request->getVar('imagenlibro');
+        #var_dump($imagenlibro);
         
-        /*
         $libro = new Libro();
 
-        $datos=[
-            'nombre_libro'=>$this->request->getVar('nombrelibro')
-        ];
-        $idlibro=$this->request->getVar('idlibros'); #idlibros viene de interfaz editar boton hidden
+        $datos=['nombre_libro'=>$this->request->getVar('nombrelibro')];
+        $idlibro=$this->request->getVar('id_libro'); #id_libro viene de interfaz editar boton hidden
+        $imagenlibro=$this->request->getFile('imagenlibro');
+
+        #var_dump($datos);
         
-        $libro->update($idlibro,$datos);
-        */
-        /*
-        $validacion = $this->validate([
-            'imagen_libro'=>[
-                'uploaded[imagen_libro]',
-                'mime_in[imagen_libro,image/jpg,image/jpeg,image/png]',
-                'max_size[imagen_libro,1024]',
-            ]
-        ]);
+        if(empty($datos)){
 
-        if($validacion){
-            if($imagenlibro=$this->request->getFile('imagenlibro')){
+            echo "<script>alert('Ingresa nombre de libro');</script>";     
+            $vuelveeditar=$this->editar($datos,$idlibro,$imagenlibro);#Llamada a la función editar()
+            return $vuelveeditar;
+        }
+        else{
+
+            $libro->update($idlibro,$datos);
+        
+            if(file_exists($imagenlibro)){
+
+                $validacion = $this->validate([
+                    'imagenlibro'=>[
+                        'uploaded[imagenlibro]',
+                        'mime_in[imagenlibro,image/jpg,image/jpeg,image/png]',
+                        'max_size[imagenlibro,1024]',
+                    ]
+                ]);
+
+                if($validacion){ 
+                    
+                        $datosLibro=$libro->where('id_libro',$idlibro)->first();
+                        $ruta=('../public/imagenes/'.$datosLibro['imagen_libro']);
+                        unlink($ruta);
+
+                        $nuevoImagenlibro=$imagenlibro->getRandomName();
+                        $imagenlibro->move('../public/imagenes/',$nuevoImagenlibro);
+
+                        $datos=['imagen_libro'=>$nuevoImagenlibro];
             
-                $datosLibro=$libro->where('id_libro',$idlibro)->first();
-                $ruta=('../public/imagenes/'.$datosLibro['imagen_libro']);
-                unlink($ruta);
-
-                $nuevoImagenlibro=$imagenlibro->getRandomName();
-                $imagenlibro->move('../public/imagenes/',$nuevoImagenlibro);
-
-                $datos=['imagen_libro'=>$nuevoImagenlibro];
-    
-                $libro->update($idlibro,$datos);
+                        $libro->update($idlibro,$datos);          
+                }
+                else{
+                    echo "<script>alert('Ingresa archivo válido jpg/jpeg/png menor a 1M');</script>";
+                    
+                    $vuelveeditar=$this->editar($idlibro,$datos,$imagenlibro);
+                    return $vuelveeditar;
+                }
             }
-        }*/
 
+            return $this->response->redirect(site_url('/listar')); 
+        }
     }
-
-
 }
