@@ -32,12 +32,9 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('listar', 'Libros::index');
-$routes->get('crear', 'Libros::crear');
-$routes->post('guardar', 'Libros::guardar');
-$routes->get('borrar/(:num)', 'Libros::borrar/$1');
-$routes->get('editar/(:num)', 'Libros::editar/$1');
-$routes->post('actualizar', 'Libros::actualizar');
+#$routes->get('libros_view', 'Biblioteca::index');
+#$routes->get('addlibro', 'Biblioteca::addlibro');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8080/ci4_/public';
+    public $baseURL = 'http://localhost:8080/rx/crud_msj';
 
     /**
      * --------------------------------------------------------------------------
@@ -36,7 +36,6 @@ class App extends BaseConfig
      *
      * @var string
      */
-    #public $indexPage = 'index.php';
     public $indexPage = 'index.php';
 
     /**
