@@ -3,6 +3,7 @@
         <div class="card-header">
             Sistema biblioteca
         </div>
+        <!--Recibe mensaje que viene del controlador con flashdata-->
         <?php if(session('mensaje')){ ?>
             
             <div class="alert alert-success alert-dismissible fade show" role="alert">
