@@ -11,6 +11,7 @@ class LibroModel extends Model{
 
     public function getLibros(){
 
+        //Retorna todos los libros de la tabla libros
         return $this->findAll();
     }
 
@@ -21,6 +22,7 @@ class LibroModel extends Model{
 
     public function obtainLibro($id_libro){
 
+        //Retorna primer valor encontrado con el id de libro recibido del controlador
         return $this->where('id_libro',$id_libro)->first($id_libro);
     }
 
