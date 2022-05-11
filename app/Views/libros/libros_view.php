@@ -16,7 +16,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Num. libro</th>
                     <th scope="col">Imagen libro</th>
                     <th scope="col">Nombre libro</th>
                     <th scope="col">Acciones</th>
