@@ -3,7 +3,6 @@
         <div class="card-header">
             Sistema biblioteca
         </div>
-        <!--Recibe mensaje que viene del controlador con flashdata-->
         <?php if(session('mensaje')){ ?>
             
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,7 +16,8 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">Num. libro</th>
+                    <!--Cambio de nombre columna.-->
+                    <th scope="col">#</th>
                     <th scope="col">Imagen libro</th>
                     <th scope="col">Nombre libro</th>
                     <th scope="col">Acciones</th>
